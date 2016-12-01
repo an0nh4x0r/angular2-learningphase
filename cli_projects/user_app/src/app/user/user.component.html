@@ -1,3 +1,29 @@
-<p>
-  user works!
-</p>
+<h1>{{ name }}</h1>
+<p><strong>Email: </strong>{{ email }}</p>
+<p><strong>Street: </strong>{{ address.street }}</p>
+<p><strong>City: </strong>{{ address.city }}</p>
+<p><strong>State: </strong>{{ address.state }}</p>
+
+<button (click)="hobbies()">{{ showHobbies ? "Hide Hobbies" : "Show Hobbies" }}</button>
+<div *ngIf="showHobbies">
+  <div *ngFor="let hobby of user_hobbies">
+    <ul>
+      <li>{{ hobby }}</li>
+    </ul>
+  </div>
+</div>
+
+<hr />
+<h3>Edit here</h3>
+<label for="name">Name: </label>
+<input id="name" type="text" name="name" [(ngModel)]="name"> <br />
+<label for="email">Email: </label>
+<input type="text" id="email" name="email" [(ngModel)]="email"> <br />
+<label for="street">Street: </label>
+<input type="text" id="street" name="street" [(ngModel)]="address.street"> <br />
+<label for="city">City: </label>
+<input type="text" id="city" name="city" [(ngModel)]="address.city"> <br />
+<label for="state">State: </label>
+<input type="text" id="state" name="state" [(ngModel)]="address.state"> <br />
+
+<button (click)="clearInfo()">Clear Informations</button>
