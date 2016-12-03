@@ -12,6 +12,7 @@ export class UserComponent implements OnInit {
   address: address;
   hobbies: string[];
   showHobbies: boolean;
+  new_hobby: string;
 
   constructor() {
     this.name = 'Swapnil Singh';
@@ -23,6 +24,7 @@ export class UserComponent implements OnInit {
     };
     this.hobbies = ['Music', 'Movies', 'Sports'];
     this.showHobbies = false;
+    this.new_hobby = '';
   }
 
   ngOnInit() {
@@ -30,6 +32,17 @@ export class UserComponent implements OnInit {
 
   toggleHobbies() {
     this.showHobbies = !this.showHobbies;
+  }
+
+  add_new_hobby() {
+    if (this.new_hobby != ''){
+      this.hobbies.push(this.new_hobby);
+      this.new_hobby = '';
+    }
+  }
+
+  remove_hobby(index: number) {
+    this.hobbies.splice(index, 1);
   }
 
 }
